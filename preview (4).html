@@ -1,0 +1,760 @@
+<!-- ====================================== -->
+<!-- BLIONES META ADS DASHBOARD -->
+<!-- ABRIL 2026 -->
+<!-- PREMIUM UI VERSION -->
+<!-- ====================================== -->
+
+<style>
+
+body{
+  background:#f4f7fb;
+  font-family:'Inter',sans-serif;
+}
+
+.bl-dashboard{
+  padding:24px;
+}
+
+/* ======================== */
+/* HEADER */
+/* ======================== */
+
+.bl-header{
+  background:
+  linear-gradient(
+  135deg,
+  #0100FE 0%,
+  #0b1140 45%,
+  #911ef3 100%);
+
+  border-radius:26px;
+  padding:34px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+
+  box-shadow:
+  0 20px 50px rgba(1,0,254,.18);
+}
+
+.bl-header:before{
+  content:'';
+  position:absolute;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  background:rgba(255,255,255,.05);
+  top:-200px;
+  right:-140px;
+}
+
+.bl-title{
+  font-size:34px;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+
+.bl-subtitle{
+  margin-top:10px;
+  opacity:.82;
+  font-size:14px;
+}
+
+.bl-badge{
+  margin-top:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border-radius:40px;
+  background:rgba(255,255,255,.10);
+  backdrop-filter:blur(12px);
+  font-size:12px;
+}
+
+/* ======================== */
+/* KPI CARDS */
+/* ======================== */
+
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:20px;
+  margin-top:26px;
+}
+
+.metric-card{
+  background:white;
+  border-radius:24px;
+  padding:24px;
+  box-shadow:
+  0 12px 30px rgba(15,23,42,.06);
+
+  transition:.3s ease;
+}
+
+.metric-card:hover{
+  transform:translateY(-4px);
+}
+
+.metric-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.metric-label{
+  font-size:12px;
+  color:#7c8499;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+.metric-icon{
+  width:48px;
+  height:48px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:20px;
+  font-weight:700;
+}
+
+.metric-value{
+  margin-top:18px;
+  font-size:38px;
+  font-weight:800;
+  color:#0f172a;
+}
+
+.metric-sub{
+  margin-top:8px;
+  color:#7c8499;
+  font-size:13px;
+}
+
+/* ======================== */
+/* TABLE */
+/* ======================== */
+
+.card-section{
+  margin-top:28px;
+  background:white;
+  border-radius:26px;
+  padding:26px;
+  box-shadow:
+  0 12px 30px rgba(15,23,42,.06);
+}
+
+.section-title{
+  font-size:19px;
+  font-weight:800;
+  margin-bottom:20px;
+  color:#111827;
+}
+
+.camp-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.camp-table th{
+  text-align:left;
+  padding:14px 10px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  color:#8a92a6;
+}
+
+.camp-table td{
+  padding:18px 10px;
+  border-top:1px solid #edf2f7;
+  font-size:14px;
+}
+
+.status-active{
+  background:#dcfce7;
+  color:#166534;
+  padding:6px 13px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.status-off{
+  background:#f3f4f6;
+  color:#6b7280;
+  padding:6px 13px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.good{
+  color:#16a34a;
+  font-weight:800;
+}
+
+.medium{
+  color:#f59e0b;
+  font-weight:800;
+}
+
+.bad{
+  color:#dc2626;
+  font-weight:800;
+}
+
+/* ======================== */
+/* CHARTS */
+/* ======================== */
+
+.chart-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:26px;
+}
+
+.chart-card{
+  background:white;
+  border-radius:26px;
+  padding:26px;
+  box-shadow:
+  0 12px 30px rgba(15,23,42,.06);
+}
+
+/* ======================== */
+/* INSIGHTS */
+/* ======================== */
+
+.insights{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:20px;
+  margin-top:26px;
+}
+
+.insight{
+  border-radius:24px;
+  padding:24px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+.insight:before{
+  content:'';
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(255,255,255,.06);
+  top:-70px;
+  right:-50px;
+}
+
+.green{
+  background:
+  linear-gradient(
+  135deg,
+  #16a34a,
+  #15803d);
+}
+
+.blue{
+  background:
+  linear-gradient(
+  135deg,
+  #0100FE,
+  #4f46e5);
+}
+
+.orange{
+  background:
+  linear-gradient(
+  135deg,
+  #f59e0b,
+  #d97706);
+}
+
+.insight-title{
+  font-size:16px;
+  font-weight:800;
+}
+
+.insight-text{
+  margin-top:12px;
+  font-size:13px;
+  line-height:1.7;
+  opacity:.95;
+}
+
+/* ======================== */
+/* RESPONSIVE */
+/* ======================== */
+
+@media(max-width:900px){
+
+.chart-grid{
+  grid-template-columns:1fr;
+}
+
+.insights{
+  grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+<div class="bl-dashboard">
+
+<!-- ======================== -->
+<!-- HEADER -->
+<!-- ======================== -->
+
+<div class="bl-header">
+
+  <div class="bl-title">
+    Bliones Facebook — Meta Ads
+  </div>
+
+  <div class="bl-subtitle">
+    Dashboard Ejecutivo · 1 Abril — 30 Abril 2026
+  </div>
+
+  <div class="bl-badge">
+    ✦ 7 campañas seleccionadas · Abril 2026
+  </div>
+
+</div>
+
+<!-- ======================== -->
+<!-- KPI -->
+<!-- ======================== -->
+
+<div class="metric-grid">
+
+  <div class="metric-card">
+
+    <div class="metric-top">
+
+      <div class="metric-label">
+        Total gastado
+      </div>
+
+      <div class="metric-icon"
+      style="background:#0100FE;">
+        $
+      </div>
+
+    </div>
+
+    <div class="metric-value">
+      $7.4K
+    </div>
+
+    <div class="metric-sub">
+      USD invertidos en Meta Ads
+    </div>
+
+  </div>
+
+  <div class="metric-card">
+
+    <div class="metric-top">
+
+      <div class="metric-label">
+        Resultados
+      </div>
+
+      <div class="metric-icon"
+      style="background:#28c5ef;">
+        ↗
+      </div>
+
+    </div>
+
+    <div class="metric-value">
+      866
+    </div>
+
+    <div class="metric-sub">
+      Leads + conversaciones
+    </div>
+
+  </div>
+
+  <div class="metric-card">
+
+    <div class="metric-top">
+
+      <div class="metric-label">
+        Mejor campaña
+      </div>
+
+      <div class="metric-icon"
+      style="background:#16a34a;">
+        ✓
+      </div>
+
+    </div>
+
+    <div class="metric-value">
+      POLOS
+    </div>
+
+    <div class="metric-sub">
+      Mejor costo por resultado
+    </div>
+
+  </div>
+
+  <div class="metric-card">
+
+    <div class="metric-top">
+
+      <div class="metric-label">
+        Impresiones
+      </div>
+
+      <div class="metric-icon"
+      style="background:#911ef3;">
+        ◉
+      </div>
+
+    </div>
+
+    <div class="metric-value">
+      475K
+    </div>
+
+    <div class="metric-sub">
+      Alcance de campañas abril
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ======================== -->
+<!-- TABLE -->
+<!-- ======================== -->
+
+<div class="card-section">
+
+<div class="section-title">
+Rendimiento por campaña
+</div>
+
+<table class="camp-table">
+
+<thead>
+
+<tr>
+<th>Campaña</th>
+<th>Estado</th>
+<th>Gastado</th>
+<th>Resultados</th>
+<th>Costo</th>
+<th>CTR</th>
+<th>Frecuencia</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td><strong>Leads Restauranteros</strong></td>
+<td><span class="status-active">Activa</span></td>
+<td>$2,685</td>
+<td>195</td>
+<td class="medium">$13.77</td>
+<td>1.51%</td>
+<td>3.10</td>
+</tr>
+
+<tr>
+<td><strong>Bliones General</strong></td>
+<td><span class="status-active">Activa</span></td>
+<td>$1,529</td>
+<td>278</td>
+<td class="good">$5.50</td>
+<td>2.42%</td>
+<td>2.16</td>
+</tr>
+
+<tr>
+<td><strong>Construcción 2026</strong></td>
+<td><span class="status-off">Off</span></td>
+<td>$322</td>
+<td>11</td>
+<td class="bad">$29.33</td>
+<td>1.29%</td>
+<td>1.71</td>
+</tr>
+
+<tr>
+<td><strong>Mundial Restauranteros MSJ</strong></td>
+<td><span class="status-off">Off</span></td>
+<td>$110</td>
+<td>2</td>
+<td class="bad">$55.23</td>
+<td>0.92%</td>
+<td>1.86</td>
+</tr>
+
+<tr>
+<td><strong>MUNDIAL 2026 Restauranteros</strong></td>
+<td><span class="status-off">Off</span></td>
+<td>$661</td>
+<td>89</td>
+<td class="good">$7.43</td>
+<td>2.08%</td>
+<td>2.19</td>
+</tr>
+
+<tr>
+<td><strong>Paquetes Restauranteros</strong></td>
+<td><span class="status-off">Off</span></td>
+<td>$1,090</td>
+<td>41</td>
+<td class="bad">$26.60</td>
+<td>1.04%</td>
+<td>2.17</td>
+</tr>
+
+<tr>
+<td><strong>POLOS + TSHIRTS</strong></td>
+<td><span class="status-off">Finalizada</span></td>
+<td>$930</td>
+<td>250</td>
+<td class="good">$3.72</td>
+<td>2.87%</td>
+<td>1.68</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- ======================== -->
+<!-- CHARTS -->
+<!-- ======================== -->
+
+<div class="chart-grid">
+
+<div class="chart-card">
+
+<div class="section-title">
+Distribución del gasto
+</div>
+
+<canvas id="gastoChart"></canvas>
+
+</div>
+
+<div class="chart-card">
+
+<div class="section-title">
+Costo por resultado
+</div>
+
+<canvas id="resultadoChart"></canvas>
+
+</div>
+
+</div>
+
+<!-- ======================== -->
+<!-- INSIGHTS -->
+<!-- ======================== -->
+
+<div class="insights">
+
+<div class="insight green">
+
+<div class="insight-title">
+✓ Mejor rendimiento
+</div>
+
+<div class="insight-text">
+POLOS + TSHIRTS y Bliones General fueron las campañas más eficientes del periodo con excelente costo por resultado y alto volumen.
+</div>
+
+</div>
+
+<div class="insight blue">
+
+<div class="insight-title">
+✦ Mayor volumen
+</div>
+
+<div class="insight-text">
+Leads Restauranteros fue la campaña con mayor inversión y volumen de leads, aunque empieza a mostrar fatiga creativa.
+</div>
+
+</div>
+
+<div class="insight orange">
+
+<div class="insight-title">
+⚠ Optimización urgente
+</div>
+
+<div class="insight-text">
+Construcción, Mundial MSJ y Paquetes Restauranteros presentan costos demasiado altos para el retorno generado.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+
+<script>
+
+new Chart(document.getElementById('gastoChart'), {
+
+type:'doughnut',
+
+data:{
+
+labels:[
+'Leads',
+'Bliones',
+'Construcción',
+'MSJ',
+'Mundial',
+'Paquetes',
+'Polos'
+],
+
+datasets:[{
+
+data:[
+2685,
+1529,
+322,
+110,
+661,
+1090,
+930
+],
+
+backgroundColor:[
+'#0100FE',
+'#28c5ef',
+'#ef4444',
+'#f97316',
+'#911ef3',
+'#11184f',
+'#16a34a'
+],
+
+borderWidth:0
+
+}]
+
+},
+
+options:{
+responsive:true,
+
+plugins:{
+legend:{
+position:'bottom'
+}
+}
+
+}
+
+});
+
+
+new Chart(document.getElementById('resultadoChart'), {
+
+type:'bar',
+
+data:{
+
+labels:[
+'Leads',
+'Bliones',
+'Construcción',
+'MSJ',
+'Mundial',
+'Paquetes',
+'Polos'
+],
+
+datasets:[{
+
+label:'Costo por resultado',
+
+data:[
+13.77,
+5.50,
+29.33,
+55.23,
+7.43,
+26.60,
+3.72
+],
+
+backgroundColor:[
+'#0100FE',
+'#28c5ef',
+'#ef4444',
+'#f97316',
+'#911ef3',
+'#11184f',
+'#16a34a'
+],
+
+borderRadius:14
+
+}]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+legend:{
+display:false
+}
+},
+
+scales:{
+
+x:{
+grid:{
+display:false
+}
+},
+
+y:{
+ticks:{
+callback:(v)=>'$'+v
+}
+}
+
+}
+
+}
+
+});
+
+</script>
